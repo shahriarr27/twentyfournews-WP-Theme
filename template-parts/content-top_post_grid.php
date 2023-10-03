@@ -10,7 +10,8 @@
                     );
                     $query = new WP_Query($args);
                 ?>
-                <?php while($query->have_posts()){ $query->the_post();?>
+                <?php if ($query->have_posts()){ 
+                while($query->have_posts()){ $query->the_post();?>
                     <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                         <div class="fh5co_suceefh5co_height_2"><img src="<?php the_post_thumbnail_url()?>" alt="img"/>
                             <div class="fh5co_suceefh5co_height_position_absolute"></div>
@@ -20,7 +21,7 @@
                             </div>
                         </div>
                     </div>
-                <?php }?>
+                <?php }wp_reset_postdata();}?>
             </div>
         </div>
     </div>

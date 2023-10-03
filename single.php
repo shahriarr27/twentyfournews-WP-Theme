@@ -19,10 +19,18 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="fh5co_tags_all">
-                  <?php $tags = get_the_tags();
-                    foreach($tags as $tag){ ?>
-                      <a href="<?= get_tag_link($tag->term_id) ?>" class="fh5co_tagg"><?= $tag->name ?></a>
-                    <?php }?>
+                  <?php
+                    if(!empty(get_the_tags())){
+                        $tags = get_the_tags();
+                        foreach($tags as $tag){ ?>
+                            <a href="<?= get_tag_link($tag->term_id) ?>" class="fh5co_tagg"><?= $tag->name ?></a>
+                        <?php 
+                        }
+                    }
+                    else{
+                        echo "No tags to show";
+                    };
+                    ?>
                 </div>
                 <div>
                     <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
